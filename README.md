@@ -1,1 +1,1 @@
-https://pawelek7k.github.io/projekt-portfolio/
+https://pawelek7k.github.io/hero-projects/
