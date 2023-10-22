@@ -7,7 +7,6 @@ padding: 0;
 body {
     background-color: black;
     color: whitesmoke;
-    font-style: normal;
     font-family: 'Open Sans', sans-serif;
     background-image: url(//images03.nicepagecdn.com/a1389d7bc73adea1e1c1fb7e/57575ef6c28251059680883e/pexelsphoto1820770.jpeg);
     background-size: cover;
@@ -19,7 +18,7 @@ a {
     transition: border-bottom 250ms;
     color: whitesmoke;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400px;
+    font-weight: 600px;
 }
 
 a:hover {
@@ -50,19 +49,40 @@ div {
 h1 {
     align-items: flex-end;
     font-size: 200px;
-    margin-top: 500px;
+    margin-top: 400px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-shadow: 1px 1px 20px rgb(212, 54, 189);
     font-family: 'Poppins', sans-serif;
     font-weight: 600px;
 }
 
+button {
+    font-size: larger;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600px;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    color: whitesmoke;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+    -webkit-box-shadow: 0px 0px 82px -8px rgba(255, 0, 95, 1);
+        -moz-box-shadow: 0px 0px 82px -8px rgba(255, 0, 95, 1);
+        box-shadow: 0px 0px 82px -8px rgba(255, 0, 95, 1);
+        background-color: black;
+}
+
 p {
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-size: 20px;
     text-shadow: 1px 1px 13px rgb(255, 0, 217);
     font-family: 'Poppins', sans-serif;
     font-weight: 400px;
+    margin-bottom: 20px;
 
 }
