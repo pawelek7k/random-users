@@ -8,8 +8,6 @@ body {
     background-color: black;
     color: whitesmoke;
     font-family: 'Open Sans', sans-serif;
-    background-image: url(//images03.nicepagecdn.com/a1389d7bc73adea1e1c1fb7e/57575ef6c28251059680883e/pexelsphoto1820770.jpeg);
-    background-size: cover;
 }
 a {
     cursor: pointer;
@@ -19,11 +17,34 @@ a {
     color: whitesmoke;
     font-family: 'Poppins', sans-serif;
     font-weight: 600px;
+    position: relative;
 }
 
-a:hover {
-    border-bottom: 2px double rebeccapurple;
+a::after {
+    content: "";
+    width: 0;
+    height: 4px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: whitesmoke;
+    transition: width 0.3s;
 }
+
+a:hover::after {
+    width: 50%;
+}
+
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3),transparent), url(//images03.nicepagecdn.com/a1389d7bc73adea1e1c1fb7e/57575ef6c28251059680883e/pexelsphoto1820770.jpeg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
 
 nav {
     display: flex;
@@ -42,19 +63,52 @@ li {
 
 div {
     align-items: center;
-    text-align: center;
-    justify-content: center;
+        text-align: center;
+        justify-content: center;
 }
 
-h1 {
-    align-items: flex-end;
-    font-size: 200px;
-    margin-top: 400px;
+.div-text {
+    color: whitesmoke;
+    position: relative;
+}
+
+.div-text h1 {
+    font-size: 300px;
     text-transform: uppercase;
     letter-spacing: 4px;
-    text-shadow: 1px 1px 20px rgb(212, 54, 189);
     font-family: 'Poppins', sans-serif;
     font-weight: 600px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 500px;
+    left: 500px;
+}
+
+.div-text h1:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px whitesmoke;
+}
+
+.div-text h1:nth-child(2) {
+    color: whitesmoke;
+    animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%,100% {
+        clip-path: polygon(0 45%, 22% 47%, 38% 57%, 50% 61%, 74% 61%, 91% 54%, 100% 48%, 100% 99%, 0 100%);
+    }
+    50% {
+        clip-path: polygon(0 45%, 18% 55%, 40% 66%, 63% 58%, 80% 50%, 99% 49%, 100% 59%, 100% 99%, 0 100%);
+    }
+}
+
+.div-text p {
+    letter-spacing: 2px;
+        font-size: 20px;
+        text-shadow: 1px 1px 13px rgb(255, 0, 217);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400px;
 }
 
 button {
@@ -67,7 +121,7 @@ button {
     color: whitesmoke;
     background-color: transparent;
     cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 button:hover {
@@ -77,12 +131,8 @@ button:hover {
         background-color: black;
 }
 
-p {
-    letter-spacing: 2px;
-    font-size: 20px;
-    text-shadow: 1px 1px 13px rgb(255, 0, 217);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400px;
-    margin-bottom: 20px;
-
+.text {
+    position: absolute;
+    top: 750px;
+    left: 400px;
 }
