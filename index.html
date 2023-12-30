@@ -1,37 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(96, 131, 229, 0.753);
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border-radius: 50%;
+            border: 1px solid rgb(230, 219, 219);
+        }
+
+        .user-profile {
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            margin: 0 auto;
+            background-color: rgba(0, 128, 70, 0.436);
+            width: 550px;
+            padding: 30px;
+            border-radius: 25px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .row {
+            display: flex;
+            gap: 30px;
+            color: rgb(230, 219, 219);
+            align-items: center;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        button {
+            display: flex;
+            margin: 0 auto;
+            margin-top: 40px;
+            padding: 15px 20px;
+            background-color: rgba(0, 128, 70, 0.436);
+            border: none;
+            border-radius: 25px;
+            color: rgb(230, 219, 219);
+            border: 1px solid rgb(230, 219, 219);
+            cursor: pointer;
+            box-shadow: 0px 0px 11px -4px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 0px 11px -4px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 11px -4px rgba(0, 0, 0, 0.75);
+            transition: all 250ms cubic-bezier(1, 0.80, 0.515, 1)
+        }
+
+        button:hover {
+            background-color: rgba(0, 128, 70, 0.241);
+            
+        }
+    </style>
 </head>
+
 <body>
-    <section class="section">
-        <div class="hero-container container">
-            <header>
-                <nav>
-                    <ul>
-                        <li><a href="">Main</a></li>
-                        <li><a href="">Cocktails</a></li>
-                        <li><a href="">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="content">
-            <div class="div-text container">
-                <h1>NEON</h1>
-                <h1>NEON</h1>
+
+    <h2 style="text-align: center; color: rgb(230, 219, 219); margin-top: 20px;">Random user</h2>
+    <div class="user-profile">
+        <div class="row">
+            <div class="column">
+                <img id="avatar-img" src="" alt="">
             </div>
-            <div class="text">
-                <p>Night Club</p>
-                <button type="button">Read More</button>
-            </div>
+            <div class="column">
+                <div id="full-name">fullname</div>
+                <div id="username">username</div>
+                <div id="user-details">
+                    <div class="div" id="email">email</div>
+                    <div id="country">country</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    <button onclick="refreshPage()">Random User</button>
+    </div>
+    <script>
+        window.onload = function () {
+            fetch("https://randomuser.me/api")
+                .then(response => response.json())
+                .then(data => dataReady(data))
+        }
+        function dataReady(data) {
+            console.log(data);
+            const result = data.results[0];
+            const fullname = `${result.name.title} ${result.name.first} ${result.name.last}`;
+            document.getElementById("full-name").innerHTML = fullname;
+            const img = result.picture.large;
+            document.getElementById("avatar-img").src = img;
+            const username = result.login.username;
+            document.getElementById("username").innerHTML = "@" + username;
+            var email = result.email;
+            document.getElementById("email").innerHTML = email;
+            const country = result.location.timezone.description;
+            document.getElementById("country").innerHTML = country
+        }
+
+        function refreshPage() {
+            // Użyj location.reload(), aby odświeżyć aktualną stronę
+            location.reload();
+        }
+    </script>
 </body>
+
 </html>
