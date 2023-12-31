@@ -101,7 +101,6 @@
                 .then(data => dataReady(data))
         }
         function dataReady(data) {
-            console.log(data);
             const result = data.results[0];
             const fullname = `${result.name.title} ${result.name.first} ${result.name.last}`;
             document.getElementById("full-name").innerHTML = fullname;
